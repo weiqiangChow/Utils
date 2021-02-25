@@ -36,13 +36,30 @@ const UtilsLibrary = {
 		};
 		return defaultTypeObj[Object.prototype.toString.call(data)];
 	},
+	
+	
 	/* 
+	 *	color transform
 	 *	r g b: 取值 （0-255) 
 	 *	return: “#ffffff”
 	 */
 	rgbToHex: (r, g, b) => {
 	  	const hex = ((r << 16) | (g << 8) | b).toString(16);
 		return '#' + new Array(Math.abs(hex.length - 7)).join('0') + hex;
+	},
+	
+	
+	/*
+	 *	千分位控制以及补零
+	 *	num 要格式化的数字 n 保留小数位
+	 */
+	formatNum: (num ,n) {
+    		num = String(num.toFixed(n));
+   		const re = /(-?\d+)(\d{3})/;
+		while(re.test(num)) {
+			num = num.replace(re,"$1,$2");
+		}  
+		return num;
 	}
 };
 
