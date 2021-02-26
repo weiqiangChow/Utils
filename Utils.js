@@ -88,7 +88,7 @@ export const downloadFile = (fileName, bolb) => {
 }
 
 /**
- *
+ * @param {Number | String} value 需要补零的数字或者字符串
  */
 export const numberPatchZero = (value) => {
 	var value=Math.round(parseFloat(value)*100)/100;
