@@ -3,8 +3,9 @@
  */
 
 /**
- *	@param {any} data 
- *	@return: type of data
+ * js类型检查
+ * @param {any} data 
+ * @return: type of data
  */
 export const dataType = (data) => {
 	const defaultTypeObj = {
@@ -53,7 +54,7 @@ export const rgbToHex = (r, g, b) => {
 	
 
 /**
- *	千分位控制以及补零
+ *      金额千分位控制以及补零
  *	@param {Number | String} num 要格式化的数字
  *	@param {Number} n 保留小数位
  */
@@ -67,7 +68,7 @@ export const formatNum = (num ,n) => {
 }
 
 /**
- * 
+ * 二进制文件下载
  * @param {String} fileName 文件名称
  * @param {Blob} bolb 文件流
  */
@@ -88,6 +89,7 @@ export const downloadFile = (fileName, bolb) => {
 }
 
 /**
+ * 补零
  * @param {Number | String} value 需要补零的数字或者字符串
  */
 export const numberPatchZero = (value) => {
@@ -103,5 +105,15 @@ export const numberPatchZero = (value) => {
 		}
 		return value;
 	}
+}
+
+/**
+ * 小数位判断
+ * @param {Number | String} value 需要判断小数位的数字型或者字符串
+ * @retrun {Boolean} 返回传入的值是否大于2位小数，大于则返回true，小于或等于则返回false
+ */
+export const judgeDecimalPlaces = (value) => {
+	const reg = /^\d+(\.\d{1,2})?$/;
+	return !reg.test(value);
 }
 
