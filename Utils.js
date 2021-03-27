@@ -117,8 +117,10 @@ export const judgeDecimalPlaces = (value) => {
 	return !reg.test(value);
 }
 
+
 /**
- *  @param {Function}
+ *  @param { Function:Files } 接收一个callback 上传的文件将会通过回调的形式触发
+ *  @return Function: Files 通过回调函数返回选中的文件
  */
 
 export const importFile = (cb) => {
@@ -147,6 +149,7 @@ export const importFile = (cb) => {
 	input.click();
 	document.body.removeChild(input);
 }
+
 	
 	
 	
