@@ -117,3 +117,42 @@ export const judgeDecimalPlaces = (value) => {
 	return !reg.test(value);
 }
 
+/**
+ *  @param {Function}
+ */
+
+export const importFile = (cb) => {
+	if (!cb){
+		throw Error(
+		    "receive a callback function containing one parameter"
+		)
+	}
+	if(Object.prototype.toString.call(cb) !== "[object Function]"){
+		throw Error("variable mast be a Function")
+	}
+	
+	function inputChange() {
+		const files = this?.files;
+		if (!files.length) {
+		    throw Error(
+			"a error in inputChange function, please checked"
+		    );
+		}
+		cb(files);
+	}
+	const input = document.createElement("input");
+	input.type = "file";
+	input.onchange = inputChange;
+	document.body.appendChild(input);
+	input.click();
+	document.body.removeChild(input);
+}
+	
+	
+	
+	
+	
+	
+	
+	
+
