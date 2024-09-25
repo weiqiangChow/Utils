@@ -56,18 +56,10 @@ export const rgbToHex = (r, g, b) => {
 }
 
 /**
- *  金额千分位控制以及补零
+ *  千分位
  *	@param {Number | String} num 要格式化的数字
- *	@param {Number} n 保留小数位
  */
-export const formatNum = (num, n) => {
-    num = String(num.toFixed(n))
-    const re = /(-?\d+)(\d{3})/
-    while (re.test(num)) {
-        num = num.replace(re, '$1,$2')
-    }
-    return num
-}
+export const toThousands = num => (+num || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 /**
  * 二进制文件下载
