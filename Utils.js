@@ -58,6 +58,8 @@ export const rgbToHex = (r, g, b) => {
 /**
  *  千分位
  *	@param {Number | String} num 要格式化的数字
+ *  minimumFractionDigits 表示数字的最少小数位数是 2 位，即使是整数，也会保留两位小数
+ *  maximumFractionDigits 表示数字的小数位数最多保留 2 位，超过的部分会四舍五入
  */
 export const toThousands = num => (+num || 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
